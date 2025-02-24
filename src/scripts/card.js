@@ -22,7 +22,6 @@ export function createCard(cardData, delCard, likeCard, openCardImg) {
 
 // Функция удаления карточки
 export function deleteCard(event) {
-  if (event.target.className !== "card__delete-button") return;
   const cardForDelete = event.target.closest(".card");
   cardForDelete.remove();
 }

@@ -2,6 +2,7 @@ import "../pages/index.css";
 import { initialCards } from "./cards.js";
 import { createCard, deleteCard, toggleLike } from "./card.js";
 import { openPopup, closePopup } from "./modal.js";
+import { enableValidation, clearValidation } from "./validation.js";
 
 // Список карточек
 const cardList = document.querySelector(".places__list");
@@ -39,6 +40,7 @@ const placeLinkInput = popupAddCard.querySelector(".popup__input_type_url");
 
 buttonAddCard.addEventListener("click", () => {
   formAddCard.reset();
+  clearValidation(formAddCard, validationConfig);
   openPopup(popupAddCard);
 });
 
@@ -52,7 +54,6 @@ function addCard(event) {
 
   renderCard(newPlace);
   closePopup(popupAddCard);
-  formAddCard.reset();
 }
 
 formAddCard.addEventListener("submit", addCard);
@@ -69,6 +70,7 @@ const profileJob = document.querySelector(".profile__description");
 buttonProfileEdit.addEventListener("click", () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
+  clearValidation(formEditProfile, validationConfig);
   openPopup(popupProfileEdit);
 });
 
@@ -91,3 +93,15 @@ function openLargeImg(cardData) {
   popupImgCaption.textContent = cardData.name;
   openPopup(popupTypeImg);
 }
+
+// Валидация форм
+const validationConfig = {
+  formSelector: '.popup__form',
+  inputSelector: '.popup__input',
+  submitButtonSelector: '.popup__button',
+  inactiveButtonClass: 'popup__button_disabled',
+  inputErrorClass: 'popup__input_type_error',
+  errorClass: 'popup__error_visible'
+};
+
+enableValidation(validationConfig);
