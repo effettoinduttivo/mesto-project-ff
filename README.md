@@ -31,6 +31,6 @@
 
 ## Ссылки
 
-Проект на GitHub: https://github.com/effettoinduttivo/mesto-project-ff.git
+Репозиторий на GitHub: https://github.com/effettoinduttivo/mesto-project-ff.git
 
-Опубликованный через GitHub Pages проект: 
+Опубликованный через GitHub Pages проект: https://effettoinduttivo.github.io/mesto-project-ff/
