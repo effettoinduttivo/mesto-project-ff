@@ -24,7 +24,7 @@ const validationConfig = {
 enableValidation(validationConfig);
 
 // Функция вывода карточки на страницу
-function renderCard(cardData, userId) {
+function renderCard(cardData) {
   const cardList = document.querySelector('.places__list');
   const newCard = createCard(
     cardData,
@@ -45,8 +45,9 @@ Promise.all([getProfileInfo(), getCards()])
     profileName.textContent = userData.name;
     profileJob.textContent = userData.about;
     userId = userData['_id'];
+    console.log(cards);
     cards.reverse().forEach((card) => {
-      renderCard(card, userId);
+      renderCard(card);
     });
   })
   .catch((err) => {
@@ -125,7 +126,7 @@ function addCard(event) {
 
   createPost(newPlace.name, newPlace.link)
     .then((data) => {
-      renderCard(data, userId);
+      renderCard(data);
       closePopup(popupAddCard);
     })
     .catch((err) => {

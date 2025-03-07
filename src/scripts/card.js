@@ -54,18 +54,10 @@ export function handleLike(cardId, button, counter) {
     button.classList.toggle('card__like-button_is-active');
     counter.textContent = data.likes.length;
   };
+  const likeMethod = button.classList.contains('card__like-button_is-active') ? 
+    removeLike : putLike;
 
-  if (button.classList.contains('card__like-button_is-active')) {
-    removeLike(cardId)
-      .then(handleResponse)
-      .catch((err) => {
-        console.log('Запрос не выполнен.', err);
-      });
-  } else {
-    putLike(cardId)
-      .then(handleResponse)
-      .catch((err) => {
-        console.log('Запрос не выполнен.', err);
-      });
-  }
+  likeMethod(cardId)
+    .then(handleResponse)
+    .catch((err) => console.log('Запрос не выполнен.', err));
 }
