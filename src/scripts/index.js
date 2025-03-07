@@ -45,7 +45,6 @@ Promise.all([getProfileInfo(), getCards()])
     profileName.textContent = userData.name;
     profileJob.textContent = userData.about;
     userId = userData['_id'];
-    console.log(cards);
     cards.reverse().forEach((card) => {
       renderCard(card);
     });
