@@ -6,7 +6,7 @@
   font-size: 14px;
   line-height: 18px;
   box-sizing: border-box;
-  padding: 10px 0 0;
+  padding: 10px 5px 0;
   margin-bottom: 10px;
 }
 
@@ -15,7 +15,8 @@
 }
 
 .popup__input:focus {
-  outline: none;
+  outline: 1px solid rgba(0, 0, 0, .2);
+  outline-offset: 1px;
 }
 
 @media screen and (max-width: 568px) {
